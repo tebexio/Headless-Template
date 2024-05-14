@@ -1,4 +1,4 @@
-# Tebex - Headless Store Boilerplate
+# Tebex - Headless Store Template
 
 An integration of the Tebex Headless API built upon Nuxt, Vue 3 & Typescript for kickstarting your next store design.
 
