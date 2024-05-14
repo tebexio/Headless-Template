@@ -1,6 +1,5 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "headless-template",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
