@@ -1,0 +1,36 @@
+@use "sass:math";
+@use "../settings" as settings;
+
+$yiq-debug: false;
+
+@function yiq-is-light($color, $threshold: settings.$contrast-threshold) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+
+  $yiq: math.div((($red * 299) + ($green * 587) + ($blue * 114)), 1000);
+
+  @if $yiq-debug {
+    @debug $yiq, $threshold;
+  }
+
+  @return if($yiq >= $threshold, true, false);
+}
+
+@function yiq-contrast-color(
+  $color,
+  $dark: settings.$contrast-text-dark,
+  $light: settings.$contrast-text-light,
+  $threshold: settings.$contrast-threshold
+) {
+  @return if(yiq-is-light($color, $threshold), $dark, $light);
+}
+
+@mixin text-contrast(
+  $color,
+  $light: settings.$contrast-text-light,
+  $dark: settings.$contrast-text-dark,
+  $threshold: settings.$contrast-threshold
+) {
+  color: yiq-contrast-color($color, $dark, $light, $threshold);
+}

@@ -1,0 +1,56 @@
+@use "sass:map";
+@use "sass:math";
+
+@use "../settings";
+@use "./media";
+
+@mixin make-grid-columns(
+  $columns: settings.$grid-columns,
+  $gutter: settings.$grid-gutter,
+  $breakpoints: settings.$grid-breakpoints
+) {
+  @each $breakpoint in map.keys($breakpoints) {
+    $infix: media.breakpoint-infix($breakpoint, $breakpoints);
+    @for $i from 1 through $columns {
+      .col#{$infix}-#{$i} {
+        width: 100%;
+        padding: $gutter * 0.5;
+      }
+    }
+
+    @include media.media-breakpoint-up($breakpoint, $breakpoints) {
+      .col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        padding: $gutter * 0.5;
+      }
+
+      .col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%;
+        padding: $gutter * 0.5;
+      }
+
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          flex: 0 0 math.percentage(math.div($i, $columns));
+          max-width: math.percentage(math.div($i, $columns));
+          padding: $gutter * 0.5;
+        }
+      }
+    }
+  }
+}
+
+@mixin make-container-max-widths(
+  $max-widths: settings.$container-max-widths,
+  $breakpoints: settings.$grid-breakpoints
+) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media.media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}

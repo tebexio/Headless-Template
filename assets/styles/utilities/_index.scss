@@ -1,0 +1,40 @@
+@use 'sass:string';
+@use 'sass:map';
+@use 'sass:meta';
+
+@use "../settings";
+@use "../tools";
+
+// Generate utility classes
+@each $breakpoint in map.keys(settings.$grid-breakpoints) {
+  // Generate media query if needed
+  @include tools.media-breakpoint-up($breakpoint) {
+    $infix: tools.breakpoint-infix($breakpoint, settings.$grid-breakpoints);
+
+    // Loop over each utility property
+    @each $key, $utility in settings.$utilities {
+      @if str-slice($key, -4) == ":ltr" {
+        @if meta.type-of($utility) ==
+          "map" and
+          (map.get($utility, responsive) or $infix == "")
+        {
+          @include tools.generate-utility($utility, $infix, "ltr");
+        }
+      } @else if str-slice($key, -4) == ":rtl" {
+        @if meta.type-of($utility) ==
+          "map" and
+          (map.get($utility, responsive) or $infix == "")
+        {
+          @include tools.generate-utility($utility, $infix, "rtl");
+        }
+      } @else {
+        @if meta.type-of($utility) ==
+          "map" and
+          (map.get($utility, responsive) or $infix == "")
+        {
+          @include tools.generate-utility($utility, $infix, "bidi");
+        }
+      }
+    }
+  }
+}

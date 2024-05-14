@@ -1,0 +1,17 @@
+@use "../settings";
+
+// Loop through the $typography map and create styles for each heading level
+@each $heading, $properties in settings.$typography {
+  #{$heading} {
+    font-size: map-get($properties, "size");
+    font-weight: map-get($properties, "weight");
+    line-height: map-get($properties, "line-height");
+    letter-spacing: map-get($properties, "letter-spacing");
+    font-family: map-get($properties, "font-family");
+    text-transform: map-get($properties, "text-transform");
+  }
+}
+
+a {
+  color: settings.$text-link-color;
+}

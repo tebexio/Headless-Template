@@ -1,0 +1,356 @@
+@use "sass:map";
+@use "../tools/functions" as *;
+
+// Pallette
+$pure-black: #000000 !default;
+$pure-white: #ffffff !default;
+
+$background-100: #000000 !default;
+$background-200: #0d0d0d !default;
+
+$c-100: #1a1a1a !default;
+$c-200: #2e3039 !default;
+$c-300: #333333 !default;
+$c-400: #4d4d4d !default;
+$c-500: #808080 !default;
+$c-600: #999999 !default;
+$c-700: #b2b2b2 !default;
+$c-800: #cccccc !default;
+$c-900: #e5e5e5 !default;
+
+// Variants, used for buttons, links, etc.
+$primary: #eb5526 !default;
+$primary-dark: darken($primary, 5%) !default;
+
+$secondary: #f5f5f5 !default;
+$secondary-dark: darken($secondary, 5%) !default;
+
+$tertiary: $c-200 !default;
+$tertiary-dark: darken($c-200, 5%) !default;
+
+$success: #20b352 !default;
+$success-dark: darken($success, 5%) !default;
+
+$danger: #c12e2e !default;
+
+$links: $c-900 !default;
+$links-dark: darken($links, 5%) !default;
+
+$clear: transparent !default;
+
+//
+// Settings
+//
+$body-bg-color: $background-100 !default;
+
+// Text contrast
+$contrast-text-dark: $pure-black !default;
+$contrast-text-light: $pure-white !default;
+$contrast-threshold: 150 !default;
+
+// Borders
+$border-bottom-color: rgba(123, 38, 13, 0.1) !default;
+$border-bottom: 1px solid $border-bottom-color !default;
+$border-radius-base: 2px !default;
+
+// Fonts
+$font-family: "Lato" !default;
+$heading-font-family: "Lato" !default;
+
+// Test sizing
+$text-base-size: 1rem !default;
+$text-base-color: $pure-white !default;
+$text-scale-ratio: 1.333 !default;
+$text-link-color: $links !default;
+
+// Text colouring
+$text-high-emphasis-color: $pure-white !default;
+$text-medium-emphasis-color: $c-900 !default;
+
+// Buttons
+$btn-height-base: 42px !default;
+$btn-height-sm: 32px !default;
+$btn-height-lg: 64px !default;
+$btn-gap: 10px !default;
+$btn-border-radius: $border-radius-base !default;
+$btn-disabled-opacity: 50% !default;
+$btn-box-shadow-enabled: false !default;
+$btn-font-weight: bold !default;
+
+// Inputs
+$input-bg: $background-200 !default;
+$input-border-color: $c-300 !default;
+$input-border: 1px solid $input-border-color !default;
+$input-border-radius: $border-radius-base !default;
+$input-border-color-hover: $c-900 !default;
+$input-placeholder-color: $c-900 !default;
+$input-padding: 17px 8px !default;
+$input-font-size: 1rem !default;
+$input-line-height: 1.5 !default;
+$input-transition: border-color 0.15s ease !default;
+$input-disabled-opacity: 0.5 !default;
+
+// Cart
+$cart-gap: 10px !default;
+$cart-padding: 0 30px !default;
+
+$cart-item-delete-color: $danger !default;
+$cart-item-color: $pure-white !default;
+$cart-item-quantity-color: $c-900 !default;
+$cart-item-bg: $c-100 !default;
+$cart-item-image-bg: $c-200 !default;
+$cart-item-image-size: 70px !default;
+$cart-item-image-padding: 10px !default;
+$cart-item-image-border-radius: 0 !default;
+$cart-item-border-radius: $border-radius-base !default;
+$cart-item-gift-user-color: $primary !default;
+$cart-item-gift-user-font-size: 12px !default;
+$cart-item-gift-user-margin-top: 5px !default;
+$cart-item-name-font-size: 18px;
+$cart-item-name-font-weight: 700;
+
+// Hero banner
+$hero-banner-color: $text-high-emphasis-color !default;
+$hero-banner-border-radius: $border-radius-base !default;
+$hero-banner-height: 360px !default;
+// Disable this by setting to false;
+$hero-gradient: linear-gradient(
+  82.4deg,
+  $background-100 0%,
+  rgba(0, 0, 0, 0) 91.9%
+) !default;
+
+// Header
+$header-bg: transparent !default;
+$header-sticky-bg: $background-100 !default;
+$hero-background-opacity: 0.5 !default;
+
+// Header card
+$header-card-color: $text-high-emphasis-color !default;
+$header-card-bg: $background-100 !default;
+$header-card-height: 48px !default;
+$header-card-justify-content: flex-start !default;
+$header-card-border-radius: $border-radius-base !default;
+
+// Package card
+$package-card-bg: $c-100 !default;
+$package-card-box-shadow: none !default;
+$package-card-name-color: $text-high-emphasis-color !default;
+$package-card-name-font-weight: 700 !default;
+$package-card-price-color: $text-high-emphasis-color !default;
+$package-card-padding: 0 !default;
+$package-card-image-bg: $c-200 !default;
+$package-card-details-padding: 0 24px !default;
+$package-card-meta-text-align: left !default;
+$package-card-actions-padding: 0 24px 24px !default;
+$package-card-border-radius: 2px !default;
+$package-card-price-font-size: 24px !default;
+
+// Category card
+$category-card-size: 270px !default;
+$category-card-bg: $c-100 !default;
+$category-card-border-radius: $border-radius-base !default;
+$category-card-border: 1px solid $c-300 !default;
+$category-card-min-width: 145px !default;
+
+// Loading spinner
+$loader-color: $pure-white !default;
+$loader-default-size: 24px !default;
+$loader-thickness: 2px !default;
+
+// Modal
+$modal-bg: $c-100 !default;
+$modal-default-max-width: 510px !default;
+$modal-border-radius: $border-radius-base !default;
+$modal-close-color: $pure-white !default;
+
+// Footer
+$footer-bg: $c-100 !default;
+$footer-height: 84px !default;
+$footer-copyright-color: $text-medium-emphasis-color !default;
+$footer-tebex-bg: $c-100 !default;
+$footer-tebex-color: $text-medium-emphasis-color !default;
+$footer-tebex-height: 45px !default;
+$footer-tebex-font-size: 11px !default;
+
+// Sidebar
+$sidebar-bg: $background-200 !default;
+
+// Responsive grid settings
+$grid-columns: 12 !default;
+$grid-gutter: 20px !default;
+
+$grid-breakpoints: () !default;
+$grid-breakpoints: deep-merge(
+  (
+    "xs": 0,
+    "sm": 600px,
+    "md": 960px,
+    "lg": 1280px,
+  ),
+  $grid-breakpoints
+);
+
+$container-max-widths: () !default;
+$container-max-widths: deep-merge(
+  (
+    "xs": null,
+    "sm": null,
+    "md": map.get($grid-breakpoints, "md") * 0.9375,
+    "lg": map.get($grid-breakpoints, "lg") * 0.9375,
+  ),
+  $container-max-widths
+);
+
+// Column/row/spacing settings
+$spacer: 4px !default;
+$spacers-steps: 16 !default;
+
+$spacers: () !default;
+@for $i from 0 through $spacers-steps {
+  $spacers: map.merge(
+    $spacers,
+    (
+      $i: $spacer * $i,
+    )
+  );
+}
+
+$negative-spacers: () !default;
+@for $i from 1 through $spacers-steps {
+  $negative-spacers: map.merge($negative-spacers, ("n" + $i: -$spacer * $i));
+}
+
+// Border radius helpers
+$border-radius-root: 4px !default;
+
+$rounded: () !default;
+$rounded: deep-merge(
+  (
+    0: 0,
+    "sm": $border-radius-root * 0.5,
+    null: $border-radius-root,
+    "lg": $border-radius-root * 2,
+    "xl": $border-radius-root * 6,
+    "pill": 9999px,
+    "circle": 50%,
+    "shaped": $border-radius-root * 6 0,
+  ),
+  $rounded
+);
+
+$borders: () !default;
+$borders: deep-merge(
+  (
+    0: 0,
+    null: thin,
+    sm: 1px,
+    md: 2px,
+    lg: 4px,
+    xl: 8px,
+  ),
+  $borders
+);
+
+$border-opacity: 0.5 !default;
+
+$border-opacities: () !default;
+$border-opacities: deep-merge(
+  (
+    0: 0,
+    null: 0.12,
+    25: 0.25,
+    50: 0.5,
+    75: 0.75,
+    100: 1,
+  ),
+  $border-opacities
+);
+
+// Text sizing helper multipliers
+$text-high-emphasis: 0.87 !default;
+$text-medium-emphasis: 0.6 !default;
+$text-disabled: 0.38 !default;
+
+// Typography styles
+$typography: () !default;
+$typography: deep-merge(
+  (
+    "h1": (
+      "size": 50px,
+      "weight": 900,
+      "line-height": 90px,
+      "letter-spacing": -0.015625em,
+      "font-family": $heading-font-family,
+      "text-transform": none,
+    ),
+    "h2": (
+      "size": 40px,
+      "weight": 300,
+      "line-height": 3.75rem,
+      "letter-spacing": -0.0083333333em,
+      "font-family": $heading-font-family,
+      "text-transform": none,
+    ),
+    "h3": (
+      "size": 36px,
+      "weight": 700,
+      "line-height": 3.125rem,
+      "letter-spacing": normal,
+      "font-family": $heading-font-family,
+      "text-transform": none,
+    ),
+    "h4": (
+      "size": 24px,
+      "weight": 400,
+      "line-height": 1.5rem,
+      "letter-spacing": 0.0073529412em,
+      "font-family": $heading-font-family,
+      "text-transform": none,
+    ),
+    "h5": (
+      "size": 20px,
+      "weight": 400,
+      "line-height": 2rem,
+      "letter-spacing": normal,
+      "font-family": $heading-font-family,
+      "text-transform": none,
+    ),
+    "h6": (
+      "size": 18px,
+      "weight": 500,
+      "line-height": 2rem,
+      "letter-spacing": 0.0125em,
+      "font-family": $heading-font-family,
+      "text-transform": none,
+    ),
+  ),
+  $typography
+);
+
+// Font weight helpers
+$font-weights: () !default;
+$font-weights: deep-merge(
+  (
+    "thin": 100,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700,
+    "black": 900,
+  ),
+  $font-weights
+);
+
+// z-index helpers
+$z-index: () !default;
+$z-index: deep-merge(
+  (
+    toast: 1000,
+    modal: 900,
+    sidebar: 800,
+    overlay: 700,
+    header: 600,
+  ),
+  $z-index
+);

@@ -1,0 +1,56 @@
+@use "../settings";
+@use "../tools/grid";
+
+.container {
+  width: 100%;
+  padding: 16px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &--fluid {
+    max-width: 100%;
+  }
+
+  &.fill-height {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include grid.make-container-max-widths;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  margin-inline: -(settings.$grid-gutter) * 0.5;
+
+  & + .row {
+    margin-top: settings.$grid-gutter * 0.5;
+
+    &--dense {
+      margin-top: settings.$grid-gutter * 0.5;
+    }
+  }
+
+  &--dense {
+    margin: -(settings.$grid-gutter) * 0.5;
+
+    > .col,
+    > [class*="col-"] {
+      padding: settings.$grid-gutter * 0.5;
+    }
+  }
+
+  &.row--no-gutters {
+    margin: 0;
+
+    > .col,
+    > [class*="col-"] {
+      padding: 0;
+    }
+  }
+}
+
+@include grid.make-grid-columns;

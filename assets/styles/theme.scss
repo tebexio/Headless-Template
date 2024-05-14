@@ -1,0 +1,37 @@
+// You can override the default settings using the SCSS with on the @forward rule for "./settings".
+// More information can be found here https://sass-lang.com/documentation/at-rules/use/#configuration
+
+//  Example of overriding the default settings:
+//
+
+// @forward "./settings" with (
+//   // Base settings
+//   $pure-black: #000000,
+//   $pure-white: #ffffff,
+
+//   // Background
+//   $background-100: #ffffff,
+//   $background-200: #f2f2f2,
+
+//   // Colour pallette
+//   $c-100: #e5e5e5,
+//   $c-200: #d1cfc6,
+//   $c-300: #cccccc,
+//   $c-400: #b2b2b2,
+//   $c-500: #7f7f7f,
+//   $c-600: #666666,
+//   $c-700: #4d4d4d,
+//   $c-800: #333333,
+//   $c-900: #1a1a1a,
+
+//   $primary: #D81B60,
+
+//   $text-high-emphasis-color: #000000,
+//   $text-base-color: #000000,
+
+//   // Components
+//   $modal-close-color: #000000,
+//   $loader-color: rgba(0, 0, 0, 0.6),
+// );
+
+@forward "./settings";

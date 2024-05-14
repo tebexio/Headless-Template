@@ -1,0 +1,38 @@
+
+// Performs a deep merge of 2 maps
+@function deep-merge($dest, $src) {
+  // Iterate through each key in the source map
+  @each $key, $value in $src {
+    // Check if the value is a map
+    @if type-of($value) == map {
+      // If the destination doesn't have the same key, just assign the source value
+      @if not map-has-key($dest, $key) {
+        $dest: map-merge(
+          $dest,
+          (
+            $key: $value,
+          )
+        );
+      } @else {
+        // If both the destination and source have the same key, merge recursively
+        $dest: map-merge(
+          $dest,
+          (
+            $key: deep-merge(map-get($dest, $key), $value),
+          )
+        );
+      }
+    } @else {
+      // If the value is not a map, just assign it to the destination
+      $dest: map-merge(
+        $dest,
+        (
+          $key: $value,
+        )
+      );
+    }
+  }
+
+  // Return the merged map
+  @return $dest;
+}

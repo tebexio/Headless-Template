@@ -1,0 +1,13 @@
+@use "../settings";
+
+body {
+  font-family: settings.$font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-optical-sizing: auto;
+  line-height: initial;
+  background-color: settings.$body-bg-color;
+  font-size: settings.$text-base-size;
+  color: settings.$text-base-color;
+}
