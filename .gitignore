@@ -17,3 +17,6 @@ logs
 .DS_Store
 .fleet
 .idea
+
+# .env file
+.env
