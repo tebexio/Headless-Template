@@ -29,6 +29,13 @@ Create a .env file
 cp .env.example .env # Fill out all the necessary fields
 ```
 
+## 🔑 Getting your API key
+Head to the [API keys](https://creator.tebex.io/developers/api-keys) page within your creator panel. You'll find a private key and a public token.
+
+Inside your **.env`** file, do the following:
+1. Set the `NUXT_PUBLIC_API_PUBLIC_KEY` key to your public token.
+2. Set the `NUXT_API_PRIVATE_KEY` key to your private key.
+
 ## ⚙️ Configuring
 Update config in `app.config.ts` with your custom configuration options for your webstore.
 
