@@ -7,7 +7,7 @@ declare module "nuxt/schema" {
         // URL of main site
         mainSiteUrl: string;
         // Discord invite URL
-        discortUrl: string;
+        discordUrl: string;
         // Game server IP/Hostname for the store (used for copy IP button)
         serverIp: string;
         // Prefix for the <title> tag
