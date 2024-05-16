@@ -138,3 +138,6 @@ bun run preview
 - [Tebex.js Documentation](https://docs.tebex.io/developers/tebex.js)
 - [Nuxt](https://nuxt.com/docs)
 - [Vue 3](https://vuejs.org/guide/introduction.html)
+
+## 🙋‍♂️ Support
+For issues relating to this template (https://github.com/tebexio/Headless-Template) please contact [support@tebex.io.](mailto:support@tebex.io)
