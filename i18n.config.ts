@@ -9,6 +9,13 @@ export default defineI18nConfig(() => ({
                 notation: "standard",
             },
         },
+        "de-DE": {
+            currency: {
+                style: "currency",
+                currency: "EUR",
+                notation: "standard",
+            },
+        },
     },
     messages: {
         "en-US": {
@@ -101,5 +108,95 @@ export default defineI18nConfig(() => ({
                 image_alt: "An image for the {name} category",
             },
         },
+        "de-DE": {
+            store_name: "Beispiel Shop",
+            play: "beispiel.shop.de",
+            index: {
+                hero: {
+                    title: "Hero Banner",
+                    subtitle: "SCHAUE DIR DIE NEUESTEN ANGEBOTE AN",
+                },
+            },
+            buttons: {
+                checkout: "Zur Kasse gehen",
+                cart: "Warenkorb | Warenkorb ({n}) | Warenkorb ({n})",
+                add_to_cart: "In den Warenkorb",
+                add_gift_to_cart: "Geschenk in den Warenkorb",
+                gift: "Geschenk",
+                login: "Anmelden",
+                logout: "Abmelden",
+                copied: "Kopiert!",
+                home: "Startseite",
+                menu: "Menü",
+                go_to_top: "Nach oben",
+            },
+            auth: {
+                login: {
+                    title: "Bitte gib deinen {gameTypeName} Benutzernamen ein",
+                },
+                logout: {
+                    title: "Bist du sicher, dass du dich abmelden möchtest?",
+                },
+                login_redirect: {
+                    title: "Hier klicken, um sich anzumelden",
+                    method: "Anmelden mit {name}",
+                },
+                login_complete: {
+                    title: "Erfolgreich angemeldet",
+                },
+                username: "Benutzername",
+            },
+            gift: {
+                input_placeholder: "Benutzername des Empfängers {gameTypeName}",
+            },
+            error: {
+                page_not_found: "Seite nicht gefunden",
+                cannot_add_package:
+                    "Du kannst dieses Paket nicht kaufen",
+            },
+            footer: {
+                join_our_discord: "Tritt unserem Discord bei",
+                copyright: "© 2024 {storeName}. Alle Rechte vorbehalten.",
+                tebex: {
+                    description:
+                        "Diese Website und ihr Checkout-Prozess werden von unserem Online-Reseller & Händler, Tebex Limited, betrieben, der auch für bestellbezogene Anfragen und Rückerstattungen zuständig ist.",
+                    impressum: "Impressum",
+                    privacy_policy: "Datenschutzerklärung",
+                    tos: "Nutzungsbedingungen",
+                },
+            },
+            messages: {
+                success: {
+                    added_to_cart: "{name} in den Warenkorb gelegt",
+                    removed_from_cart: "{name} aus dem Warenkorb entfernt",
+                },
+            },
+            sidebar: {
+                menu: "Menü",
+            },
+            titles: {
+                login: "Anmelden",
+                package: "{name}",
+            },
+            checkout: {
+                completed: {
+                    title: "Vielen Dank für deine Bestellung",
+                    subtitle:
+                        "Du solltest deine Artikel in wenigen Minuten erhalten",
+                },
+            },
+            cart: {
+                title: "Warenkorb",
+                empty: "Dein Warenkorb ist leer",
+                total: "Gesamt",
+                item: {
+                    quantity: "x{quantity}",
+                    gift_to: "Geschenk an {username}",
+                },
+            },
+            category: {
+                image_alt: "Ein Bild für die Kategorie {name}",
+            },
+        }
     },
 }));
