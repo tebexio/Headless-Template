@@ -11,7 +11,7 @@ For Customer support Please contact our support team at [support@tebex.io](mailt
 git clone git@github.com:MY_FORK/Headless-Template.git
 
 # Move into the directory
-cd Tebex.js
+cd Headless-Template
 
 # Add the upstream repo
 git remote add upstream git@github.com:tebexio/Headless-Template.git
