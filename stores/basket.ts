@@ -65,7 +65,23 @@ export const useBasketStore = defineStore("basket", () => {
 
     // Get the current basket from the API
     async function getBasket() {
-        basket.value = await services.getBasket(basket.value.ident);
+        // No basket is present
+        if (basketId.value === null)
+            return;
+
+        try {
+            basket.value = await services.getBasket(basketId.value);
+        }
+        catch(err: any) {
+            // After some time, discarded baskets may be deleted
+            // If this happens, we need to clear the basket we have stored by setting it back to null
+            if (err.message === "Basket not found") {
+                basket.value = null;
+                basketId.value = null;
+                return;
+            }
+            throw err;
+        }
 
         return basket;
     }

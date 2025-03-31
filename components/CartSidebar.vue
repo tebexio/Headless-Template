@@ -116,6 +116,8 @@ const onPaymentComplete = () => {
 onMounted(async () => {
     await until(() => window?.Tebex).toBeTruthy();
 
+    basketStore.getBasket();
+
     if (isClient) {
         window.Tebex.checkout.on("payment_complete", onPaymentComplete);
 
